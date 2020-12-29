@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<h1> Inventory List </h1>
+<script>
+$(document).ready(function () {
+    $.getJSON('http://localhost:3000/users',
+    function (json) {
+        var tr;
+        for (var i = 0; i < json.length; i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + json.data[i].empno + "</td>");
+            tr.append("<td>" + json.data[i].emp_fname + "</td>");
+            tr.append("<td>" + json.data[i].emp_lname + "</td>");
+            tr.append("<td>" + json.data[i].emp_dob + "</td>");
+            tr.append("<td>" + json.data[i].emp_city + "</td>");
+            tr.append("<td>" + json.data[i].emp_mobno + "</td>");
+            $('#table').append(tr);
+        }
+    });
+});
+
+</script>
+
+<table id= "table">
+  <tr>
+    <th> EmpNo</th>
+    <th> First Name</th>
+    <th> Last Name</th>
+    <th> DOB</th>
+    <th> City</th>
+    <th> Mobile No.</th>
+  </tr>
+
+</table>
+</body>
+</html>
