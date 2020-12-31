@@ -10,7 +10,7 @@ $(document).ready(function () {
     $.getJSON('http://localhost:3000/users',
     function (json) {
         var tr;
-        for (var i = 0; i < json.length; i++) {
+        for (var i = 0; i < json["data"].length; i++) {
             tr = $('<tr/>');
             tr.append("<td>" + json.data[i].empno + "</td>");
             tr.append("<td>" + json.data[i].emp_fname + "</td>");
